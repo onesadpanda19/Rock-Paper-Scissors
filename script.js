@@ -5,9 +5,9 @@ loop to five rounds*/
 // game
 /*if playerSelection = ComputerSelection
 then tie
-if computerslection is rock and playeselection paper,
-if computerselction is paper and playerselection is scissors, 
-if computerselction is Scissors and playerselection is rock, 
+if computerSelection is rock and playerSelection is paper,
+if computerSelection is paper and playerSelection is scissors, 
+if computerSelection is Scissors and playerSelection is rock, 
 Player Wins
 if opposite
 Computer wins
@@ -34,8 +34,30 @@ function getComputerChoice(){
 const selection = getComputerChoice()
 console.log(selection)
 
-
-
 function playRound(playerSelection, ComputerSelection) {
+    if (
+        (selectionTwo === "ROCK") && (selection === "SCISSORS") ||
+        (selectionTwo === "PAPER") && (selection === "ROCK") ||
+        (selectionTwo === "SCISSORS") && (selection === "PAPER")
+    ){return "Player Wins!"}
     
+    if (
+        (selectionTwo === "ROCK") && (selection === "PAPER") ||
+        (selectionTwo === "PAPER") && (selection === "SCISSORS") ||
+        (selectionTwo === "SCISSORS") && (selection === "ROCK")
+    ){return "Computer Wins!"}4
+
+    if (
+        selection === selectionTwo
+    ) {return "Its A Tie!"}
+}
+console.log(playRound())
+/* game function will start both the player and the computer at 0. then add a
+point to whoever wins the round. then after five rounds declare a winner!*/
+
+let playerScore = 0
+let ComputerScore = 0
+for (var i=0; i < 6; i++) {
+    console.log(playRound())
+    console.log(playerScore, ComputerScore)
 }
