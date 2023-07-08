@@ -14,13 +14,6 @@ Computer wins
 loop to 5 games
 first to 5 wins wins
 */
-function getPlayerChoice(){
-    let answer = (prompt("Please choose Rock, Paper, or Scissors!"))
-    let selectionTwo = answer.toUpperCase()
-  
-    return selectionTwo
-   
-} 
 
 function getComputerChoice(){
  let result = Math.floor(Math.random()*3+1)
