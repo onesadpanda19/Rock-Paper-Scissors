@@ -18,7 +18,8 @@ let playerScore = 0
 let computerScore = 0
 let buttons = document.querySelectorAll(".btn");
 let roundResult;
-    if (roundResult =)
+/* let roundResult update player or computer score*/
+
 // Global Scope
 buttons.forEach((button) => {
     // Outer scope
@@ -32,7 +33,31 @@ buttons.forEach((button) => {
         
         //Play a round
         roundResult = playRound(computer, player)
-       
+        if (roundResult === "Player Wins!") {playerScore ++}
+        if (roundResult === "Computer Wins!") {computerScore ++}
+        console.log (playerScore)
+        console.log (computerScore)
+        const player1 = document.querySelector(".player")
+        player1.textContent = `Player Score: ${playerScore}`
+        const computer1 = document.querySelector(".computer")
+        computer1.textContent = `Computer Score: ${computerScore}`
+        // Select parent element
+        const roundResultContainer =document.querySelector(".empty")
+
+        // Create a new child element
+        const roundResultElement = document.createElement('div')
+
+        // Fill the child element with stuffz
+        roundResultElement.textContent = `${roundResult}`
+        // Append child element to parent
+        roundResultContainer.appendChild(roundResultElement);
+
+        setTimeout(() => {
+            roundResultContainer.removeChild(roundResultElement)
+        }, 2000)
+        
+        // 1000 one second
+        
     })
 });
 

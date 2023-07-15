@@ -39,3 +39,10 @@ p {
     display: flex;
     justify-content: center;
 }
+.empty {
+    color: rgba(0, 0, 255, 0.61);
+    font-size: 40px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+}
