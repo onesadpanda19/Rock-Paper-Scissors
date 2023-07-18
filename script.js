@@ -24,6 +24,9 @@ let roundResult;
 buttons.forEach((button) => {
     // Outer scope
     button.addEventListener("click", () => {
+        if (playerScore == 5 || computerScore == 5) {
+            return
+        }
         // Inner scope
         // Get a player choice
         let player = (button.id) // Rock, paper, scissors
@@ -46,21 +49,43 @@ buttons.forEach((button) => {
 
         // Create a new child element
         const roundResultElement = document.createElement('div')
-
+        const roundResultElement2 = document.createElement('div')
+        const roundResultElement3 = document.createElement("div")
+        const resetButton = document.createElement("button")
         // Fill the child element with stuffz
         roundResultElement.textContent = `${roundResult}`
+        resetButton.textContent = "Play Again?"
         // Append child element to parent
         roundResultContainer.appendChild(roundResultElement);
 
         setTimeout(() => {
             roundResultContainer.removeChild(roundResultElement)
-        }, 2000)
-        
-        // 1000 one second
-        
+        }, 1000)
+        if (playerScore === 5) {
+            roundResultElement2.textContent = "You Won!"
+            roundResultContainer.appendChild(roundResultElement2)
+            roundResultContainer.appendChild(resetButton)
+             
+            
+        }
+        if (computerScore === 5) {
+            roundResultElement3.textContent = "Computer Won!"
+            roundResultContainer.appendChild(roundResultElement3)
+            roundResultContainer.appendChild(resetButton)
+            
+        }
+        resetButton.addEventListener("click", () => {
+            computerScore = 0
+            playerScore = 0
+            roundResultContainer.replaceChildren();
+            player1.textContent = "Player Score: 0"
+            computer1.textContent = 'Computer Score: 0' 
+        })
     })
 });
 
+
+/*read once someone reaches 5 and end the game
 
 
 /**
